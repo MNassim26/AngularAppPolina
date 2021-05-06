@@ -1,0 +1,51 @@
+.menu{
+    position: relative;
+    top:-8px;
+    width: 35px;
+    height: 5px;
+    background-color: #021B79;
+    margin: 6px 0;
+  }
+  .sidenav-container {
+    min-height:94vh;
+    margin-top:25px;
+    margin-right:20px;
+    margin-left:20px;
+  }
+  
+  .sidenav {
+    width:250px;
+    background:#F5F5F5;
+  }
+  
+  .sidenav .mat-toolbar {
+    margin-top:-10px;
+    height:250px;
+    background:#F5F5F5;
+  }
+  
+  .mat-toolbar.mat-primary {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    color:black;
+    background:#F5F5F5;
+  
+  }
+  
+  img{
+    /*width:99%;
+    height:85%;*/
+    margin-left:7%;
+    margin-top:-20px;
+    width:85%;
+    height:75%;
+  }
+
+  .mat-nav-list{
+    font-weight: bold;
+    margin-top:-43px;
+  }
+  
+  
+  

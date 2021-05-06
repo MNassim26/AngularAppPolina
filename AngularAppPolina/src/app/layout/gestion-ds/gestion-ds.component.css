@@ -1,0 +1,20 @@
+.icon{
+    width: 28px;
+    height: 28px;
+}
+
+.gerer{
+    cursor: pointer;
+}
+
+.add{
+    display: none;
+}
+
+.check{
+    display: none;
+}
+
+.edit{
+    display: none;
+}

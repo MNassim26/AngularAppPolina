@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <h1>
+              
+          </h1>
+      </div>
+  </div>
+</div>
+<div class="container">
+  <div class="card card-container">
+          <img id="profile-img" class="profile-img-card" src="../assets/img/user.png" />
+      <p id="profile-name" class="profile-name-card"></p>
+      <form class="form-signin">
+          
+          <input type="text" name="usernames" id="usernames" class="form-control" placeholder="Username" [(ngModel)]="compte.username" required autofocus>
+          <input type="password" name="Password" id="Password" class="form-control" placeholder="Mot de passe" [(ngModel)]="compte.password" required >
+          <div *ngIf="erreur==true" class="alert alert-danger" style="text-align: center">
+                <strong>Erreur ! </strong>Veuillez Vérifier vos données 
+              </div>
+          <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" (click)="login()">Connecter</button>
+      </form>
+  </div>
+</div>

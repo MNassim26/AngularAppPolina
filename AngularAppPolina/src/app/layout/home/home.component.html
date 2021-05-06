@@ -1,0 +1,152 @@
+<app-layout>
+    <ng-container class="txt">
+      <div class="container-fluid">
+        <div class="row">
+          <br>
+          <div class="col-md-12 title">
+            <h1>Gestion des demandes - Accueil</h1>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-12">
+                <form method="post">
+                  <table class="table">
+                      <tr class="table-header">
+                        <th colspan="4"><h3 class="subTitle">Ajouter demande de service</h3></th>
+                      </tr>
+                      <tr>
+                        <th colspan="1" >Numéro</th>
+                        <td colspan="3"><input type="number" name ='numero' class="form-control" [(ngModel)]='demandeService.numero'></td>
+                      </tr>
+                      <tr>
+                        <th colspan="1" style="text-align:center;">Objet</th>
+                        <td colspan="3"><input type="text"  name ='objet' class="form-control" [(ngModel)]='demandeService.objet'></td>
+                      </tr>
+                      <tr>
+                        <th colspan="1" style="text-align:center;">Destinataire</th>
+                        <td colspan="3"><input type="text" name ='destinataire' class="form-control " [(ngModel)]='demandeService.destinataire'></td>
+                      </tr>
+                      <tr>
+                        <th colspan="4">Produits</th>
+                      </tr>
+                      <tr>
+                        <th colspan="1" style="text-align:center;">Designation</th>
+                        <td colspan="3"><input typbe="text" name="designation" class="form-control" [(ngModel)]='produit.designation'></td>
+                      </tr>
+                      <tr>
+                        <th colspan="1" style="text-align:center;">Quantité</th>
+                        <td colspan="3"><input type="number" name="quantite" class="form-control" [(ngModel)]=' produit.quantite'></td>
+                      </tr>
+                      <tr>
+                        <th colspan="1" style="text-align:center;">Prix Unitaire</th>
+                        <td colspan="3"><input type="number" name="prixUnitaire" class="form-control" [(ngModel)]='produit.prixUnitaire'></td>
+                      </tr>
+                      <tr>
+                        <td colspan="4"><button mat-raised-button  class="btn btn-block btn-secondary" (click)="addProduitDs()">Ajouter un autre produit</button></td>
+                      </tr>
+                      <tr *ngIf="erreur==true" >
+                        <td colspan="4">
+                            <div  class="alert alert-danger" style="text-align: center;width:100% ;">
+                                <strong>Erreur ! </strong>Veuillez saisir toutes les informations necéssaires
+                            </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="2" style="width: 50%">
+                          <button mat-raised-button class="btn btn-block btn-primary" (click)="onSubmitDs()" >Enregistrer</button>
+                        </td>
+                        <td colspan="2" style="width: 50%">
+                          <button mat-raised-button  class="btn btn-block btn-danger" type="reset" (click)="resetDs()" >Annuler</button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </form>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-md-6">
+              <div class="row">
+                <div class="col-md-12">
+                  <form>
+                    <table class="table">
+                      <thead>
+                        <tr class="table-header">
+                          <th colspan="4"><h3 class="subTitle">Ajouter demande d'investissement</h3></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th colspan="1" style="text-align:center;">Numéro</th>
+                          <td colspan="3"><input type="number" name="numero" class="form-control" [(ngModel)]='demandeInvestissement.numero'></td>
+                        </tr>
+                        <tr>
+                          <th colspan="1" style="text-align:center;">Objet</th>
+                          <td colspan="3"><input type="text" name="objet" class="form-control" [(ngModel)]='demandeInvestissement.objet'></td>
+                        </tr>
+                        <tr>
+                          <th colspan="1" style="text-align:center;">Date</th>
+                          <td colspan="3"><input type="date" name="date" class="form-control" [(ngModel)]='demandeInvestissement.date'></td>
+                        </tr>
+                        <tr>
+                          <th colspan="1" style="text-align:center;">Rapport explicatif</th>
+                          <td colspan="3"><textarea class="form-control" name="rapportExlicatif" rows="7" [(ngModel)]='demandeInvestissement.rapportExplicatif'></textarea></td>
+                        </tr>
+                        <tr>
+                          <th colspan="4">Personnes concernées par la mise à jour</th>
+                        </tr>
+                        <tr>
+                          <th colspan="1" style="text-align:center;">Nom et prénom</th>
+                          <td colspan="3"><input type="text" name="nomPrenom" class="form-control" [(ngModel)]='personne.nomPrenom'></td>
+                        </tr>
+                        <tr>
+                          <td colspan="4"><button mat-raised-button  class="btn btn-block btn-secondary" (click)="addPersonne()" >Ajouter une autre personne</button></td>
+                        </tr>
+                        <tr>
+                          <th colspan="4">Produits</th>
+                        </tr>
+                        <tr>
+                          <th colspan="1" style="text-align:center;">Designation</th>
+                          <td colspan="3"><input type="text" name="designation" class="form-control" [(ngModel)]='produitDi.designation'></td>
+                        </tr>
+                        <tr>
+                          <th colspan="1" style="text-align:center;">Quantité</th>
+                          <td colspan="3"><input type="number" name="quantite" class="form-control" [(ngModel)]='produitDi.quantite'></td>
+                        </tr>
+                        <tr>
+                          <th colspan="1" style="text-align:center;">Prix Unitaire</th>
+                          <td colspan="3"><input type="text" name="prixUnitaire" class="form-control" [(ngModel)]='produitDi.prixUnitaire'></td>
+                        </tr>
+                        <tr>
+                          <td colspan="4"><button mat-raised-button  class="btn btn-block btn-secondary" (click)="addProduitDi()" >Ajouter un autre produit</button></td>
+                        </tr>
+                        <tr *ngIf="erreur2==true" >
+                            <td colspan="4">
+                                <div  class="alert alert-danger" style="text-align: center;width:100% ;">
+                                    <strong>Erreur ! </strong>Veuillez saisir toutes les informations necéssaires
+                                </div>
+                            </td>
+                          </tr>
+                        <tr>
+                          <td colspan="2" style="width: 50%">
+                            <button mat-raised-button  class="btn btn-block btn-primary" (click)="onSubmitDi()" >Enregistrer</button>
+                          </td>
+                          <td colspan="2" style="width: 50%">
+                            <button mat-raised-button  class="btn btn-block btn-danger" type="reset" (click)="resetDi()">Annuler</button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </form>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </ng-container>
+</app-layout>
